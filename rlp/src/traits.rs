@@ -23,7 +23,7 @@ pub trait Encodable {
 	fn rlp_append(&self, s: &mut RlpStream);
 
 	/// Get rlp-encoded bytes for this instance
-	fn rlp_bytes(&self) -> BytesMut {
+	fn rlp_bytes(&self) -> Vec<u8> {
 		let mut s = RlpStream::new();
 		self.rlp_append(&mut s);
 		s.out()

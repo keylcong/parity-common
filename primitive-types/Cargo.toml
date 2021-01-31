@@ -25,14 +25,5 @@ serde = ["std", "impl-serde", "impl-serde/std"]
 serde_no_std = ["impl-serde"]
 codec = ["impl-codec"]
 rlp = ["impl-rlp"]
-arbitrary = ["fixed-hash/arbitrary", "uint/arbitrary"]
-fp-conversion = ["std"]
-num-traits = ["impl-num-traits"]
-
-[[test]]
-name = "scale_info"
-required-features = ["scale-info"]
-
-[[test]]
-name = "fp_conversion"
-required-features = ["fp-conversion"]
+#arbitrary = ["fixed-hash/arbitrary", "uint/arbitrary"]
+#num-traits = ["impl-num-traits"]

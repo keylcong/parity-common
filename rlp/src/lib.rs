@@ -90,21 +90,21 @@ where
 /// let out = rlp::encode(&animal);
 /// assert_eq!(out, vec![0x83, b'c', b'a', b't']);
 /// ```
-pub fn encode<E>(object: &E) -> BytesMut
-where
-	E: Encodable,
+pub fn encode<E>(object: &E) -> Vec<u8>
+	where
+		E: Encodable,
 {
 	let mut stream = RlpStream::new();
 	stream.append(object);
-	stream.out()
+	stream.drain()
 }
 
-pub fn encode_list<E, K>(object: &[K]) -> BytesMut
-where
-	E: Encodable,
-	K: Borrow<E>,
+pub fn encode_list<E, K>(object: &[K]) -> Vec<u8>
+	where
+		E: Encodable,
+		K: Borrow<E>,
 {
 	let mut stream = RlpStream::new();
 	stream.append_list(object);
-	stream.out()
+	stream.drain()
 }
